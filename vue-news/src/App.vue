@@ -2,6 +2,7 @@
   <div id="app">
     <tool-bar></tool-bar>
     <!-- url 주소에 따라서 router-view가 변경-->
+    <!-- url이 만약 news면 <NewsView></NewsView> -->
     <router-view></router-view>
   </div>
 </template>
