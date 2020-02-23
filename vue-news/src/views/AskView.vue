@@ -1,6 +1,16 @@
 <template>
   <div>
-    <div v-for="item in askItems">{{ item.title }}</div>
+    <div v-for="item in askItems">
+      <!-- <a v-bind:href="item.url">
+        {{ item.title }}
+      </a> -->
+      <router-link v-bind:to="`item/${item.id}`">
+        {{ item.title }}
+      </router-link>
+      <small>
+        {{ item.time_ago }} by {{ item.user }}
+      </small>
+    </div>
   </div>
 </template>
 
@@ -11,10 +21,8 @@ export default {
   computed: {
     // 3
     ...mapGetters({
-      askItems: 'ask'
-    }) 
-
-
+      askItems: 'fetchedAsk'
+    }),
     // 2
     // ...mapState({
     //   ask: state => state.ask
