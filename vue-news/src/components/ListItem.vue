@@ -42,26 +42,17 @@ export default {
   computed: {
     // eslint-disable-next-line vue/return-in-computed-property
     listItems() {
-      const name = this.$route.name;
-      if (name === 'news') {
-        return this.$store.state.news
-      } else if (name === 'ask'){
-        return this.$store.state.ask
-      } else if (name === 'jobs') {
-        return this.$store.state.jobs
-      }
+      return this.$store.state.list;
+      // const name = this.$route.name;
+      // if (name === 'news') {
+      //   return this.$store.state.news
+      // } else if (name === 'ask'){
+      //   return this.$store.state.ask
+      // } else if (name === 'jobs') {
+      //   return this.$store.state.jobs
+      // }
     }
   }, 
-  created(){
-    const name = this.$route.name;
-    if (name === 'news') {
-      this.$store.dispatch('FETCH_NEWS')
-    } else if (name === 'ask') {
-      this.$store.dispatch('FETCH_ASK')
-    } else if (name == 'jobs') {
-      this.$store.dispatch('FETCH_JOBS')
-    }
-  }
 }
 </script>
 

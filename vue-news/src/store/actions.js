@@ -4,54 +4,60 @@ import {
   fetchAskList, 
   fetchUserInfo, 
   fetchCommentItem,
+  fetchList,
 } from "../api/index.js";
 
 export default {
     FETCH_NEWS(context) {
-      fetchNewsList()
+      return fetchNewsList()
         .then(response => {
-          console.log('response ', response);
           context.commit('SET_NEWS', response.data);
+          return response;
         })
         .catch(error => {
           console.log(error);
         });
     },
     FETCH_JOBS({ commit }) {
-      fetchJobsList() 
-        .then(({ data }) => { // response.data 를 data로 destructuring 함
-          console.log('data ', data);
-          commit('SET_JOBS', data);
+      return fetchJobsList()
+        .then(({ data }) => {
+          // response.data 를 data로 destructuring 함
+          commit("SET_JOBS", data);
         })
         .catch(error => {
           console.log(error);
         });
     },
     FETCH_ASK({ commit }) {
-      fetchAskList()
+      return fetchAskList()
         .then(({ data }) => {
-          commit('SET_ASK', data)
+          commit("SET_ASK", data);
         })
         .catch(error => {
-          console.log(error)
+          console.log(error);
         });
     },
     FETCH_USER({ commit }, name) {
-      fetchUserInfo(name)
+      return fetchUserInfo(name)
         .then(({ data }) => {
-          commit('SET_USER', data)
+          commit("SET_USER", data);
         })
         .catch(error => {
           console.log(error);
-        })
+        });
     },
     FETCH_ITEM({ commit }, id) {
-      fetchCommentItem(id)
+      return fetchCommentItem(id)
         .then(({ data }) => {
-          commit('SET_ITEM', data)
+          commit("SET_ITEM", data);
         })
         .catch(error => {
           console.log(error);
-        })
-    }
+        });
+    },
+    FETCH_LIST({ commit }, pageName) {
+      return fetchList(pageName)
+        .then(({ data }) => commit("SET_LIST", data))
+        .catch(error => console.log(error));
+    },
   }

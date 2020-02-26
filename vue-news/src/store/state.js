@@ -4,4 +4,5 @@ export default {
     ask: [],
     user: {},
     item: {},
+    list: [],
 }
