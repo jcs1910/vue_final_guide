@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ListItem></ListItem>
+    <list-item></list-item>
   </div>
 </template>
 
@@ -8,7 +8,6 @@
 import ListItem from "../components/ListItem.vue";
 import ListMixin from "../mixins/ListMixin.js";
 
-// mixin 활용법
 export default {
   components: {
     ListItem
